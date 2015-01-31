@@ -7,9 +7,12 @@
 <body>
     <div>
     <label>Name:</label>
-    <input type="text" ng-model="yourName" placeholder="Enter a name here">
+    <input type="text" ng-model="yourName">
+    <label>Year of Birth: </label>
+    <input type="text" ng-model="yob">
     <hr>
     <h1>Hello {{yourName}}!</h1>
+    <p>You are {{2015-yob}} years old.</p>
     </div>
 </body>
 </html>
