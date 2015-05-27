@@ -1,0 +1,20 @@
+[
+{
+	"id":1,
+	"userId": 1,
+	"firstName": ["Jack","text"],
+	"lastName": ["Rackum","text"]
+},
+{
+	"id":1,
+	"userId": 1,
+	"firstName": ["Tony","text"],
+	"lastName": ["Nandaa","text"]
+},
+{
+	"id":1,
+	"userId": 1,
+	"firstName": ["Linda","text"],
+	"lastName": ["Njeri","text"]
+}
+]
