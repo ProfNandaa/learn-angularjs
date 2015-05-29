@@ -19,7 +19,7 @@
       <ul id="example-messages" class="example-chat-messages">
         <li ng-repeat="msg in messages">
           <strong class="example-chat-username">{{ msg.from }}</strong>
-          {{ msg.body }}
+          {{ msg.body }} - <span>{{msg.date}}</span>
         </li>
       </ul>
 
@@ -40,11 +40,13 @@
           //ADD MESSAGE METHOD
           $scope.addMessage = function(e) {
 
+            var date = new Date();
+
             //LISTEN FOR RETURN KEY
             if (e.keyCode === 13 && $scope.msg) {
               //ALLOW CUSTOM OR ANONYMOUS USER NAMES
               var name = $scope.name || "anonymous";
-          $scope.messages.$add({ from: name, body: $scope.msg });
+              $scope.messages.$add({ from: name, body: $scope.msg, date: date.toJSON() });
               //RESET MESSAGE
               $scope.msg = "";
             }
