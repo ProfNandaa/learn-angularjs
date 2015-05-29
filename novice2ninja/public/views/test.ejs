@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<title>Angular JS | From Novice to Ninja</title>
+		<base href="/">
+		<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="src/bootstrap.min.css" />
+	</head>
+<body>
+	<div class="container">
+		<div class="page-header">
+			<h1>Hello AngularJS!</h1>
+		</div>
+		<div ng-controller="GreetingController" class="row">
+			<p>{{greeting}}! The current date/time is <span class="label label-primary">{{now | date:'medium'}}</span>
+			</p>
+			<button ng-click="getRandomHelloMessage()">Random Message</button>
+		</div>
+		<div class="row" ng-controller="FinanceController">
+
+			<p>Your Salary?</p>
+			<p><input type="text" ng-model="salary" /></p>
+			<p>How much should you invest in gadgets?</p>
+			<p><input type="text" ng-model="percentage" />%</p>
+			<p>The amount to be spent in shopping will be:
+				<span>{{result() | currency}}</span></p>
+
+		</div>
+	</div>
+
+	<script src="lib/jquery/dist/jquery.min.js"></script>
+	<script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="lib/angular/angular.min.js"></script>
+	<script src="src/app.js"></script>
+	<script src="src/controllers.js"></script>
+</body>
+</html>
