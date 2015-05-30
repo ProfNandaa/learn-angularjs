@@ -1,0 +1,32 @@
+<%- partial('partials/header') %>
+
+		<div class="page-header">
+			<h1>Publishers</h1>
+		</div>
+		<div ng-controller="SiteController" class="row">
+			<p>{{publisher}} excells in {{types}} books</p>
+			
+			<div class="row" ng-controller="BookController">
+				<div class="col-md-6">
+					<h3>Some of the popular books from {{publisher}}</h3>
+					<ul>
+						<li ng-repeat="book in books">{{book}}
+							<a href="./p/scopes#" ng-click="addToWishList(book)">Add to Wish List</a>
+						</li>
+					</ul>
+					<div class="input-group col-md-8">
+				      <input ng-model="item" type="text" class="form-control">
+				      <span class="input-group-btn">
+				        <button ng-click="addBook(item)" class="btn btn-default" type="button">Add Book</button>
+				      </span>
+				    </div>
+				</div>
+				<div class="col-md-6">
+					<h3>Wishlist</h3>
+					<ul>
+						<li ng-repeat="book in wishList">{{book}}</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+<%- partial('partials/footer') %>

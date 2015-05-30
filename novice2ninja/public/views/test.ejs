@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html ng-app="myApp">
-	<head>
-		<title>Angular JS | From Novice to Ninja</title>
-		<base href="/">
-		<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
-		<link rel="stylesheet" href="src/bootstrap.min.css" />
-	</head>
-<body>
-	<div class="container">
+<%- partial('partials/header') %>
+
 		<div class="page-header">
 			<h1>Hello AngularJS!</h1>
 		</div>
@@ -26,12 +18,4 @@
 				<span>{{result() | currency}}</span></p>
 
 		</div>
-	</div>
-
-	<script src="lib/jquery/dist/jquery.min.js"></script>
-	<script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script src="lib/angular/angular.min.js"></script>
-	<script src="src/app.js"></script>
-	<script src="src/controllers.js"></script>
-</body>
-</html>
+<%- partial('partials/footer') %>

@@ -18,6 +18,10 @@ app.get('/test', function(req,res){
 	res.render('test');
 });
 
+app.get('/p/:page',function(req,res){
+	res.render(req.params.page);
+});
+
 
 app.listen(3035,function(){
 	console.log("Express server listening on port 3035");
