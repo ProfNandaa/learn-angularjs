@@ -14,6 +14,10 @@ app.set('view options',{
 	layout: false
 });
 
+app.get('/', function(req,res){
+	res.render('routes');
+});
+
 app.get('/test', function(req,res){
 	res.render('test');
 });
