@@ -1,0 +1,42 @@
+<%- partial('partials/header') %>
+
+		<div class="page-header">
+			<h1>AngularJS Forms</h1>
+		</div>
+		<div class="row" ng-controller="UserController">
+
+			<div class="col-md-6">
+
+				<form name="myform">
+					<input type="text" name="firstname" ng-model="user.firstname" placeholder="First Name" class="form-control" ng-required="true" ng-minlength="2"/>
+					<input type="text" name="lastname" ng-model="user.lastname" placeholder="Last Name" class="form-control" ng-required="true" ng-minlength="2"/>
+					<textarea name="bio" ng-model="user.bio" class="form-control" placeholder="Bio"> </textarea>
+					<select class="form-control" name="country" ng-model="user.country"
+					ng-options="country.id as country.desc for country in countries">
+					</select>
+					<p>I love: 
+						<input type="radio" ng-model="user.choice" value="Coffee" /> Coffee
+						<input type="radio" ng-model="user.choice" value="Tea" /> Tea
+					</p>
+
+					<!-- ng-show="myform.$valid" -->
+					<button ng-click="addUser()" class='btn btn-primary'>Add User</button>
+				
+				
+				</form>
+			</div>
+
+			<div class="col-md-6">
+			<ul class="users">
+				<li ng-repeat="u in users">
+					<p><strong>Name: </strong>{{u.firstname}} {{u.lastname}}</p>
+					<p><strong>Bio: </strong>{{u.bio}}</p>
+					<p><strong>Country: </strong> {{u.country}}</p>
+					<p>Loves {{u.choice}} </p>
+				</li>
+			</ul>
+			</div>
+
+			
+		</div>
+<%- partial('partials/footer') %>

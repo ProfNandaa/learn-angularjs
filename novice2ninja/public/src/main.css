@@ -1,0 +1,19 @@
+body{
+
+}
+
+form{
+
+}
+
+form > * {
+	margin-bottom: 5px;
+}
+
+.error-message {
+	color: red;
+}
+
+input.ng-dirty.ng-invalid {
+	border-color: red;
+}

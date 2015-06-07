@@ -47,4 +47,33 @@ angular.module('myApp',[])
 			$scope.books.push(book);
 			$scope.item = "";
 		}
+	})
+	.controller('UserController',function($scope,$log){
+		$scope.users = [];
+		$scope.user = {};
+		$scope.user.country="KE";
+		$scope.user.choice = "Tea";
+
+		$scope.countries = [{
+			id: 'US',
+			desc: 'United States'
+		},{
+			id: 'GB',
+			desc: 'United Kingdom'
+		},{
+			id: 'AU',
+			desc: 'Australia'
+		},{
+			id: 'KE',
+			desc: 'Kenya'
+		}];
+
+		$scope.addUser = function(){
+			$log.info($scope.myform.firstname);
+			if($scope.myform.$valid){
+				var u = jQuery.extend({}, $scope.user);
+				$scope.users.push(u);
+			}
+		}
+
 	});
