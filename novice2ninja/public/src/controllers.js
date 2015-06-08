@@ -76,4 +76,51 @@ angular.module('myApp',[])
 			}
 		}
 
-	});
+	})
+	.controller('PromiseController',['$scope','$q','$interval',
+		function($scope,$q,$interval){
+			$scope.cancelRequest = false;
+
+			$scope.cancelReq = function(){
+				$scope.cancelRequest = true;
+			}
+
+			$scope.getPromise = function(){
+				var i = 0;
+				var deferred = $q.defer(); //creates a new deferred object
+
+				var timer = $interval(function(){
+					if(!! $scope.cancelRequest){
+						//if cancel is requested from UI, reject the promise
+						deferred.reject('Promise Rejected due to Cancellation');
+						$interval.cancel(timer);
+					}
+
+					i = i + 1; //increment i each time
+
+					if(i == 5){
+						deferred.resolve('Counter has reached 5'); //once the 
+							//value of i = 5, resolve promise
+						$interval.cancel(timer); //make sure to cancel timer
+					}
+					else{
+						deferred.notify('Counter has reached ' + i);
+						//else, notify the client about the progress
+					}
+				}, 1000);
+
+				return deferred.promise; //finally return the promise instance
+			}
+
+			$scope.getAsyncMessage = function(){
+				var promise = $scope.getPromise(); //get hold of the promise instance
+
+				promise.then(function(message){
+					$scope.status = 'Resolved: ' + message;
+				}, function(message){
+					$scope.status = 'Rejected: ' + message;
+				}, function(message){
+					$scope.status = 'Notifying: ' + message;
+				});
+			}
+		}]);

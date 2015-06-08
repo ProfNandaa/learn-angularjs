@@ -1,0 +1,23 @@
+<%- partial('partials/header') %>
+
+		<div class="page-header">
+			<h1>Promises</h1>
+		</div>
+		<div class="row" ng-controller="PromiseController">
+
+			<div class="col-md-6">
+				<p>{{status}}</p>
+
+				<button class="btn btn-default" ng-click="getAsyncMessage()">Get Message</button>
+
+				<button class="btn btn-default" ng-click="cancelReq()">Cancel</button>
+				
+			</div>
+
+			<div class="col-md-6">
+			
+			</div>
+
+			
+		</div>
+<%- partial('partials/footer') %>
