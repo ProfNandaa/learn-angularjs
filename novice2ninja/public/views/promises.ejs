@@ -6,11 +6,11 @@
 		<div class="row" ng-controller="PromiseController">
 
 			<div class="col-md-6">
-				<p>{{status}}</p>
+				<p><strong>Promise Status: </strong> {{status}}</p>
 
 				<button class="btn btn-default" ng-click="getAsyncMessage()">Get Message</button>
 
-				<button class="btn btn-default" ng-click="cancelReq()">Cancel</button>
+				<button class="btn btn-default" ng-click="cancelRequest = true">Cancel</button>
 				
 			</div>
 

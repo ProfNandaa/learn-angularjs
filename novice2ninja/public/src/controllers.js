@@ -79,11 +79,7 @@ angular.module('myApp',[])
 	})
 	.controller('PromiseController',['$scope','$q','$interval',
 		function($scope,$q,$interval){
-			$scope.cancelRequest = false;
-
-			$scope.cancelReq = function(){
-				$scope.cancelRequest = true;
-			}
+			// $scope.cancelRequest
 
 			$scope.getPromise = function(){
 				var i = 0;
