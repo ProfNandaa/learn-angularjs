@@ -1,20 +1,37 @@
 // 'use strict';
 
-angular.module('myApp', ['ngRoute']);
+angular.module('myApp', []);
 
 // angular.module('myApp').run(function($rootScope){
 // 	$rootScope.title = "Famout Books";
 // 	$rootScope.name = "Root Scope";
 // });
 
-angular.module('myApp').config(function($routeProvider){
-	$routeProvider.when('/view1',{
-		templateUrl: 'views/partials/view1.html'
-	}).when('/view2',{
-		templateUrl: 'views/partials/view2.html'
-	}).otherwise({
-		redirectTo: "/"
+angular.module('myApp').service('customService',
+	function($http){
+		this.getData = function(){
+			return $http({
+				method:'GET',
+				url:'/api'
+			}); //this function returns a Promise
+		}
 	});
 
-	// $locationProvider.html5Mode(true); //activate HTML5 Mode
-});
+angular.module('myApp').factory('weatherService',
+	function($http){
+		return {
+			getWeather: function(city,country){
+				var query = city + ',' + country;
+				return $http.get('http://api.openweathermap.org/data/2.5/weather',
+				{
+					params: {
+						q: query
+					}
+				}).then(function(response){
+					//returns a promise which is resolved with return 
+					//value of success callback
+					return response.data.weather[0].description;
+				});
+			}
+		}
+	});

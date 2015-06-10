@@ -1,6 +1,7 @@
 var express = require('express');
 
-var app = express.createServer();
+var app = express.createServer(),
+	counter = 0;;
 
 
 app.configure(function(){
@@ -20,6 +21,12 @@ app.get('/', function(req,res){
 
 app.get('/test', function(req,res){
 	res.render('test');
+});
+
+app.get('/api', function(req,res){
+	counter++;
+	var test = {name:'Nandaa',year:2015,counter:counter};
+	res.json(test);
 });
 
 app.get('/p/:page',function(req,res){

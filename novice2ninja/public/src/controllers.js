@@ -1,4 +1,4 @@
-angular.module('myApp',[])
+angular.module('myApp')
 	.controller('FinanceController',function($scope){
 		$scope.salary = 0;
 		$scope.percentage = 0;
@@ -119,4 +119,16 @@ angular.module('myApp',[])
 					$scope.status = 'Notifying: ' + message;
 				});
 			}
-		}]);
+		}])
+	.controller('HttpController',function($scope,customService){
+		$scope.getData = function(){
+			customService.getData().then(function(data,status,config,headers){
+				console.log('Response from server: ' + data);
+				$scope.res = data;
+				//called when response arrives from server
+			},function(data,status,config,headers){
+				console.log('Some error occured!'); //called in case
+					//of error
+			});
+		}
+	});
