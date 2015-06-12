@@ -1,17 +1,12 @@
 <%- partial('partials/header') %>
 
 		<div class="page-header">
-			<h1>Weather</h1>
+			<h1>Directives</h1>
 		</div>
 		<div class="row" ng-controller="WeatherController">
 
 			<div class="col-md-6">
-				City :
-				<input type="text" ng-model="city" placeholder="Enter city name here" />Country:
-				<input type="text" ng-model="country" placeholder="Enter country name here" />
-				<button class="btn btn-default" ng-click="getWeather()">Get Data</button>
-				<p>Weather Condition: <span>{{weatherCondition}}</span></p>
-				
+				<div hello-world></div>
 			</div>
 
 			<div class="col-md-6">
