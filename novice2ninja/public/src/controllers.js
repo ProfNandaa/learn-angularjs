@@ -142,4 +142,7 @@ angular.module('myApp')
 					$scope.weatherDescription = "Could not obtain data";
 				});
 		}
+	})
+	.controller('DirController',function($scope){
+		$scope.message = 'I love Angular JS';
 	});
