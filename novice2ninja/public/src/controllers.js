@@ -145,4 +145,12 @@ angular.module('myApp')
 	})
 	.controller('DirController',function($scope){
 		$scope.message = 'I love Angular JS';
+	})
+	.controller("RatingCtrl", function($scope) {
+	  $scope.rating1 = 5;
+	  $scope.rating2 = 2;
+	  $scope.isReadonly = true;
+	  $scope.rateFunction = function(rating) {
+	    console.log("Rating selected: " + rating);
+	  };
 	});
