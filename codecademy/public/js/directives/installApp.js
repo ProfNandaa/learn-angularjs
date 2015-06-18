@@ -9,7 +9,7 @@ app.directive('installApp', function() {
       scope.installed = false;
 
       scope.download = function() {
-        element.toggleClass('btn-active')
+        element.toggleClass('btn-active');
         if(scope.installed) {
           scope.buttonText = "Install";
           scope.installed = false;
