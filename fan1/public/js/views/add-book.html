@@ -1,0 +1,19 @@
+<h5>Add a Book</h5>
+<div class="col-md-6">
+        
+            <input ng-model="title" type="text" id="title" class="form-control" placeholder="Title" />
+            <input ng-model="author" type="text" id="author" class="form-control" placeholder="Author" />
+            <input ng-model="price" type="text" id="price" class="form-control" placeholder="Price" />
+            <input ng-model="pubdate" type="text" id="pubdate" class="form-control" placeholder="Publication Date" />
+
+            <button ng-click="addBook()" class="btn btn-primary add-book">Add</button>
+          
+        </div>
+
+        <div class="col-md-6">
+          <ul class="books">
+            <li ng-repeat="book in books">
+              {{ book.title }}
+            </li>
+          </ul>
+        </div>

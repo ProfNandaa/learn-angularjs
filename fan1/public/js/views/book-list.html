@@ -1,0 +1,12 @@
+<h5>List of Books</h5>
+<div class="row book-list">
+
+<div ng-repeat="book in books" class="col-md-3 book">
+	<div class="title">{{ book.title }}</div>
+	<div class="author"> By {{ book.author }}</div>
+	<div class="price"> {{ book.price | currency:'$':0 }}</div>
+	<div class="pubdate">Published {{ book.pubdate * 1000 | date }} </div>
+</div>
+
+
+</div>
