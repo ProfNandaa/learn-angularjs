@@ -7,8 +7,9 @@
 
 //   }]);
 
-app.controller("MainController",["$scope", "books", 
-	function($scope, books){
+app.controller("MainController",
+	["$scope", "$firebaseObject", "$routeParams", "books", 
+	function($scope, $firebaseObject, $routeParams, books){
 		$scope.books = books;
 
 		$scope.addBook = function(){
@@ -20,14 +21,30 @@ app.controller("MainController",["$scope", "books",
 				title: $scope.title,
 				author: $scope.author,
 				price: $scope.price,
-				rating: 0,
+				rating: 1,
 				pubdate: pubdate
 			});
+
+			$scope.rate = function(rating) {
+		    	console.log("Rating selected: " + rating);
+		  	};
 
 			//reset form
 			//find better way with form Models
 			$scope.title = $scope.author = $scope.price = $scope.pubdate = "";
+		}
 
+		$scope.id = $routeParams.id;
+		var ref = new Firebase('https://fan1.firebaseio.com/books/' + 
+										$routeParams.id);
+		$scope.book = $firebaseObject(ref);
+		var commentsRef = ref.child("comments");
+
+		$scope.comments = $firebaseObject(commentsRef);
+
+		$scope.addComment = function(){
+			commentsRef.push({comment: $scope.comment});
+			$scope.comment = "";
 		}
 	}
 

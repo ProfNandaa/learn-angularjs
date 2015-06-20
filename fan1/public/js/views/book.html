@@ -1,0 +1,17 @@
+<div>
+<h5>{{ book.title }}</h5>
+<p><strong>Author: </strong> {{ book.author }}</br>
+<strong>Price:</strong> {{ book.price | currency }}</br>
+<strong>Published: </strong> {{ book.pubdate * 1000 | date }}</p>
+<div star-rating ng-model="book.rating" max="5" on-rating-selected="rate(book.rating)"></div>
+
+<div class="comments">
+	<p ng-repeat="comment in comments">{{ comment.comment }} </p>
+</div>
+
+<div class="comment-box">
+	<textarea ng-model="comment" class="form-control"></textarea>
+	<button ng-click="addComment()" class="btn btn-primary">Comment</button>
+</div>
+
+</div>

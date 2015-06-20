@@ -9,5 +9,9 @@ app.config(function($routeProvider){
 		.when("/",{
 			templateUrl: "/js/views/book-list.html",
 			controller: "MainController"
+		})
+		.when("/book/:id",{
+			templateUrl: "/js/views/book.html",
+			controller: "MainController"
 		});
 })

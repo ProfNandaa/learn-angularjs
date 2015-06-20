@@ -99,7 +99,7 @@ button{
   padding: 10px;
   margin: 20px;
 /*  margin-right: 15px;*/
-  height: 200px;
+  height: 220px;
   box-shadow: 3px 3px #dedede;
 }
 
@@ -123,4 +123,38 @@ button{
   border-radius: 100%;
   background: #555;
   color: #fefefe;
+}
+
+/*rating*/
+.rating {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+.rating li {
+  padding: 1px;
+  color: #ddd;
+  font-size: 12px;
+  text-shadow: .05em .05em #aaa;
+  list-style-type: none;
+  display: inline-block;
+  cursor: pointer;
+}
+.rating li.filled,
+.rating li:hover{
+  color: #fd0;
+}
+
+
+.rating.readonly li.filled {
+  color: #666;
+}
+
+.comments{
+  border-top: solid 1px #eaeaea;
+  margin: 10px 0;
+}
+
+.comments p{
+  margin: 3px;
 }

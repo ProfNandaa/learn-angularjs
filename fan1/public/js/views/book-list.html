@@ -2,10 +2,13 @@
 <div class="row book-list">
 
 <div ng-repeat="book in books" class="col-md-3 book">
+	<a href="#/book/{{ book.$id }}">
 	<div class="title">{{ book.title }}</div>
+	</a>
 	<div class="author"> By {{ book.author }}</div>
 	<div class="price"> {{ book.price | currency:'$':0 }}</div>
 	<div class="pubdate">Published {{ book.pubdate * 1000 | date }} </div>
+	<div star-rating ng-model="book.rating" max="5" on-rating-selected="rate(book.rating)"></div>
 </div>
 
 
