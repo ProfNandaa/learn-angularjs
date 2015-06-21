@@ -3,14 +3,19 @@
 <p><strong>Author: </strong> {{ book.author }}</br>
 <strong>Price:</strong> {{ book.price | currency }}</br>
 <strong>Published: </strong> {{ book.pubdate * 1000 | date }}</p>
-<div star-rating ng-model="book.rating" max="5" on-rating-selected="rate(book.rating)"></div>
+<div star-rating ng-model="book.rating" max="5" on-rating-selected="rate1(rating)"></div>
+
+<div class="rating">
+	<p>Rating: 
+	<select ng-change="rate(book.$id,book.rating)" ng-model="book.rating" ng-options="rating as rating for rating in ratings" class="form-control"></select></p>
+</div>
 
 <div class="comments">
 	<p ng-repeat="comment in comments">{{ comment.comment }} </p>
 </div>
 
 <div class="comment-box">
-	<textarea ng-model="comment" class="form-control"></textarea>
+	<textarea ng-model="comment" class="form-control" placeholder="Comment"></textarea>
 	<button ng-click="addComment()" class="btn btn-primary">Comment</button>
 </div>
 

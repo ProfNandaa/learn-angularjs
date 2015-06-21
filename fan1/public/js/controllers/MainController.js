@@ -24,11 +24,6 @@ app.controller("MainController",
 				rating: 1,
 				pubdate: pubdate
 			});
-
-			$scope.rate = function(rating) {
-		    	console.log("Rating selected: " + rating);
-		  	};
-
 			//reset form
 			//find better way with form Models
 			$scope.title = $scope.author = $scope.price = $scope.pubdate = "";
@@ -46,6 +41,19 @@ app.controller("MainController",
 			commentsRef.push({comment: $scope.comment});
 			$scope.comment = "";
 		}
+
+		$scope.ratings = function(){
+			var a = new Array();
+			for(var i = 1; i <= 5; i++){
+				a.push(i);
+			}
+			return a;
+		}();
+
+		$scope.rate = function(id,rating) {
+		   // console.log("Rating selected: "+ id + " / " + rating);
+		   ref.update({rating: rating});
+		};
 	}
 
 ]);
